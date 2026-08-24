@@ -1,0 +1,18 @@
+{
+  "total": 315,
+  "by_date": {
+    "0727": 60,
+    "0802": 56,
+    "0804": 26,
+    "0805": 29,
+    "0811": 48,
+    "0812": 60,
+    "0813": 36
+  },
+  "distance_px": {
+    "min": 16.101242188104617,
+    "mean": 172.12493267143765,
+    "max": 430.4445376584537
+  },
+  "legend": "red=T target center, blue=M mirrored target center, green=A asset source center"
+}

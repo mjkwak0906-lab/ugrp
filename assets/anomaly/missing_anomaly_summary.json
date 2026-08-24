@@ -1,0 +1,12 @@
+{
+  "original_candidate_count": 315,
+  "usable_asset_count": 297,
+  "anomaly_count": 18,
+  "count_by_shape": {
+    "circle": 6,
+    "rectangle": 5,
+    "triangle": 7
+  },
+  "source_note": "All anomaly files were copied as transparent PNGs from records_0727_0813_assets_work/assets, including its existing assets/anomaly folder.",
+  "manifest": "C:\\Users\\user\\vscode\\1ugrp\\lerobot_robot_piper_full_code_2026-07-13\\records\\whiteboard_augmenter\\source_position_feasibility_work\\assets\\anomaly\\missing_anomaly_manifest.csv"
+}

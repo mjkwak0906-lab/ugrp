@@ -1,0 +1,16 @@
+# Generated augmented episode folders are intentionally not tracked here.
+/0727/
+/0802/
+/0804/
+/0805/
+/0811/
+/0812/
+/0813/
+
+# Do not commit generated videos.
+*.mp4
+
+# Local/runtime noise.
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
