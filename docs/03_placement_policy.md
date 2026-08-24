@@ -1,6 +1,6 @@
 # 03 Placement Policy
 
-이 문서는 기존 합성 데이터에서 방해 도형을 어떤 원칙으로 배치했는지 설명한다.
+이 문서는 합성 데이터에서 방해 도형을 어떤 원칙으로 배치했는지 설명한다.
 
 ## 기본 원칙
 
@@ -74,54 +74,3 @@
 | total |  | 315 |
 
 목표 도형 분포는 105개씩 균등하게 유지했다. 방해 도형 분포는 safe 배치 조건과 asset 선택 과정 때문에 약간 차이가 있다.
-
-## 관련 코드
-
-기존 board-y-aware 합성 방식의 주요 코드는 아래 파일에 있다.
-
-```text
-code/
-  analyze_target_positions.py
-  augment_whiteboard.py
-  batch_augment_dates.py
-  batch_augment_0727.py
-  batch_augment_0727_circle.py
-  src/
-    placement.py
-    motion.py
-    drawing_detection.py
-    compositing.py
-    roi.py
-    metadata.py
-```
-
-역할:
-
-- `analyze_target_positions.py`: 목표 도형 중심과 top/bottom 위치 분석
-- `batch_augment_dates.py`: 여러 날짜/도형 episode에 대해 batch 합성 실행
-- `augment_whiteboard.py`: 단일 영상에 asset 합성
-- `src/placement.py`: safe 영역과 배치 위치 선택
-- `src/motion.py`: 로봇팔 움직임 영역 분석
-- `src/drawing_detection.py`: 기존 그림/목표 도형 영역 검출
-- `src/compositing.py`: 투명 PNG asset을 영상 프레임에 합성
-
-정책을 간단히 코드 형태로 쓰면 아래와 같다.
-
-```python
-DISTRACTOR_SHAPES = {
-    "circle": ("triangle", "rectangle"),
-    "rectangle": ("circle", "triangle"),
-    "triangle": ("circle", "rectangle"),
-}
-
-placement_side = "bottom" if target_side == "top" else "top"
-
-safe_area = board_area
-safe_area -= robot_motion_area
-safe_area -= existing_drawing_area
-safe_area -= board_border_area
-safe_area &= placement_side_area
-
-inserted_shape = choose_from(DISTRACTOR_SHAPES[target_shape])
-placement_xy = choose_random_safe_position(safe_area, asset_size)
-```

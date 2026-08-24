@@ -39,13 +39,6 @@ debug/placement_preview.png
 | `safe_mask.png` | 최종 배치 가능 영역 |
 | `unsafe_mask.png` | 배치하면 안 되는 영역 |
 
-## 검수 체크리스트
-
-- 방해 도형이 목표 도형과 반대쪽에 있는가
-- 방해 도형이 목표 도형과 겹치지 않는가
-- 방해 도형이 로봇팔, 케이블, 카메라선과 겹치지 않는가
-- 방해 도형이 화면 밖으로 나가거나 잘리지 않는가
-- `placement_preview.png`가 시각적으로 자연스러운가
 
 ## source_position_feasibility_preview
 
